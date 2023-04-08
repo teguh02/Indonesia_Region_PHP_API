@@ -19,11 +19,6 @@ trait Districts {
 
             // filter array
             $districts = (array) filter_array($districts, 'regency_id', $id);
-
-            if ($options['sort'] != 'none') {
-                // sort array
-                $districts = (array) sort_array($districts, $options['sort'], $options['order']);
-            }
             
             // limit array
             if ($options['limit'] != 'all') {

@@ -19,11 +19,6 @@ trait Regencies {
 
             // filter array
             $regencies = (array) filter_array($regencies, 'province_id', $id);
-
-            if ($options['sort'] != 'none') {
-                // sort array
-                $regencies = (array) sort_array($regencies, $options['sort'], $options['order']);
-            }
             
             // limit array
             if ($options['limit'] != 'all') {
@@ -57,11 +52,6 @@ trait Regencies {
 
             // filter array
             $regencies = (array) filter_array_by_array($regencies, 'province_id', (array) $id);
-
-            if ($options['sort'] != 'none') {
-                // sort array
-                $regencies = (array) sort_array($regencies, $options['sort'], $options['order']);
-            }
             
             // limit array
             if ($options['limit'] != 'all') {

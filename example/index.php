@@ -8,10 +8,10 @@ use Teguh02\PhpIndonesiaRegion\Region;
 # PROVINCE
 // get all province
 $province = Region::query("all provinces") -> get();
-// $province = Region::query("all provinces") -> get([
-//     'sort' => 'id',
-//     'order' => 'desc',
-//     // 'limit' => 5,
+
+// you can set output as json directly
+// with this code
+// return Region::query("all provinces") -> get([
 //     'output' => 'json'
 // ]);
 
@@ -36,4 +36,4 @@ $province = Region::query("all provinces") -> get();
 // get all village with id district is 330227
 // $villages = Region::query("villages with id_district = 330227") -> get();
 
-echo json_encode($province);
+// var_dump ($province);

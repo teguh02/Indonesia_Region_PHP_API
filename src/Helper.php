@@ -59,8 +59,15 @@ if (!function_exists('csv_reader')) {
                     // loop and store header
                     $header = [];
                     $header_index = 0;
+                    $header[0] = "id";
                     foreach ($data as $key => $value) {
-                        $header[$header_index] = remove_special_character($value);
+                        // skip first index
+                        if ($header_index == 0) {
+                            $header_index++;
+                            continue;
+                        }
+
+                        $header[$header_index] = $value;
                         $header_index++;
                     }
                     
@@ -103,67 +110,6 @@ if (!function_exists('format_text')) {
     function format_text(String $string): String
     {
         return (string) ucwords(strtolower($string));
-    }
-}
-
-if (!function_exists('sort_array')) {
-    /**
-     * Sort multidimensional array
-     *
-     * @param Array $array
-     * @param String $key
-     * @param String $order
-     * @return void
-     */
-    function sort_array(Array $array, String $key, String $order = 'asc')
-     {
-        $sorter = [];
-        $ret = [];
-
-        reset($array);
-        foreach ($array as $ii => $va) {
-            $sorter[$ii] = $va[$key];
-        }
-        if ($order == 'asc') {
-            asort($sorter);
-        } else {
-            arsort($sorter);
-        }
-        foreach ($sorter as $ii => $va) {
-            $ret[$ii] = $array[$ii];
-        }
-
-        $ret = array_values($ret);
-
-        return (array) $ret;
-
-        // $sorter = [];
-        // $ret = [];
-
-        // reset($array);
-        // foreach ($array as $ii => $va) {
-        //     $sorter[$ii] = $va[$key];
-        // }
-
-        // if ($order == 'asc') {
-        //     usort($array, function($a, $b) {
-        //         // sort array by key asc
-        //         return $a['id'] <=> $b['id'];
-        //     });
-        // } else {
-        //     usort($array, function($a, $b) {
-        //         // sort array by key desc
-        //         return $b['id'] <=> $a['id'];
-        //     });
-        // }
-
-        // foreach ($sorter as $ii => $va) {
-        //     $ret[$ii] = $array[$ii];
-        // }
-
-        // $ret = array_values($ret);
-
-        // return (array) $ret;
     }
 }
 

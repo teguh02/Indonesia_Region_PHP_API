@@ -19,11 +19,6 @@ trait Villages {
 
             // filter array
             $villages = (array) filter_array($villages, 'district_id', $id);
-
-            if ($options['sort'] != 'none') {
-                // sort array
-                $villages = (array) sort_array($villages, $options['sort'], $options['order']);
-            }
             
             // limit array
             if ($options['limit'] != 'all') {

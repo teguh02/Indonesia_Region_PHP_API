@@ -15,11 +15,6 @@ trait Provinces {
         try {
             // read all csv 
             $province = (array) csv_reader(self::$province_file)['data'];
-
-            if ($options['sort'] != 'none') {
-                // sort array
-                $province = (array) sort_array($province, $options['sort'], $options['order']);
-            }
             
             // limit array
             if ($options['limit'] != 'all') {
@@ -53,16 +48,6 @@ trait Provinces {
 
             // filter array
             $province = (array) filter_array($province, 'id', $id);
-
-            if ($options['sort'] != 'none') {
-                // sort array
-                $province = (array) sort_array($province, $options['sort'], $options['order']);
-            }
-            
-            // limit array
-            if ($options['limit'] != 'all') {
-                $province = (array) limit_array($province, $options['limit']);
-            }
             
             // output
             if ($options['output'] == 'json') {
@@ -91,9 +76,6 @@ trait Provinces {
 
             // filter array
             $province = (array) filter_array_by_array($province, 'id', $id);
-
-            // sort array
-            $province = (array) sort_array($province, $options['sort'], $options['order']);
             
             // limit array
             if ($options['limit'] != 'all') {

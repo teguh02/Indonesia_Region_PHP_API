@@ -18,8 +18,6 @@ class RegionParent {
     
     protected static $query;
     protected static $options = [
-        'order' => 'asc',
-        'sort' => 'none',
         'limit' => 'all',
         'output' => 'array'
     ];
@@ -63,14 +61,6 @@ class RegionParent {
         if (empty($options)) {
             $options = self::$options;
         } else {
-            // check array sort key
-            // if sort key is id, throw exception
-            if (array_key_exists('sort', $options)) {
-                if ($options['sort'] == 'id') {
-                    throw new Exception("Sort key can't be id");
-                }
-            }
-
             $options = array_merge(self::$options, $options);
         }
 
