@@ -1,6 +1,12 @@
 # PHP API for Indonesia Region
 Why this package? Because this is no need to use database, just use this package and you can get all region in Indonesia
 
+# Install
+Install with composer command
+```
+composer require teguh02/php_indonesia_region
+```
+
 # Usage
 
 ## PROVINCE
